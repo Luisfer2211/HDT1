@@ -53,4 +53,25 @@ public class Radio implements IRadio {
             return -1.0;
         }
     }
+
+    @Override
+    public void switchOnOff() {
+        on = !on;
+        if (!on) {
+            System.out.println("Radio apagada.");
+        } else {
+            System.out.println("Radio encendida.");
+        }
+    }
+
+    @Override
+    public void switchAMFM() {
+        if (on) {
+            am = !am;
+            currentStation = am ? 530.0 : 87.9;
+            System.out.println("Cambiando a " + (am ? "AM" : "FM") + ".");
+        } else {
+            System.out.println("Enciende la radio antes de cambiar la frecuencia.");
+        }
+    }
 }
